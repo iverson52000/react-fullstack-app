@@ -14,9 +14,10 @@ function App() {
   return (
     <div className="container">
       <Navigation />
+      <Link to="/list">List</Link>
       <Router>
         <Switch>
-          <Route path="/signin" exact>
+          <Route path="/" exact>
             <Signin />
           </Route>
           <Route path="/register">

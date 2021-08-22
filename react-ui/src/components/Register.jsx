@@ -92,7 +92,7 @@ function Register() {
                 </button>
               </form>
               <div className="text-center mt-2">
-                <Link to="/signin">Signin</Link>
+                <Link to="/">Signin</Link>
               </div>
             </div>
           </div>
