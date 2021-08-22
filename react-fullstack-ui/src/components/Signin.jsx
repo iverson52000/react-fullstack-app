@@ -1,10 +1,39 @@
 import React, { useContext } from "react";
+import { useFormik } from "formik";
 import { Link } from "react-router-dom";
-import { AppContext } from "../provider/AppProvider";
 
 function Signin() {
-  const { handleSignChange, userObj, handleSignin, setRoute } =
-    useContext(AppContext);
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+
+    onSubmit: async (values) => {
+      alert(JSON.stringify(values, null, 2));
+      //   try {
+      //     const resp = await fetch("http://127.0.0.1:8000/auth/login/", {
+      //       method: "post",
+      //       headers: { "Content-Type": "application/json" },
+      //       body: JSON.stringify(userObj),
+      //     });
+
+      //     const data = await resp.json();
+
+      //     console.log(data);
+      //     if ("key" in data) {
+      //       setToken(data.key);
+      //       setRoute("list");
+      //       setUserObj({});
+      //     } else {
+      //       alert(Object.values(data));
+      //     }
+      //   } catch (error) {
+      //     console.log(error);
+      //     alert("Something went wrong!");
+      //   }
+    },
+  });
 
   return (
     <>
@@ -16,33 +45,32 @@ function Signin() {
           <div className="card card-signin my-5">
             <div className="card-body">
               <h5 className="card-title text-center">Sign In</h5>
-              <form
-                className="form-signin"
-                onSubmit={(event) => handleSignin(event, userObj)}
-              >
+              <form className="form-signin" onSubmit={formik.handleSubmit}>
                 <div className="form-label-group">
-                  <label htmlFor="inputEmail">Username</label>
+                  <label htmlFor="username">Username</label>
                   <input
                     name="username"
                     type="text"
-                    id="inputEmail"
+                    id="username"
                     className="form-control"
-                    placeholder="Username"
-                    onChange={(event) => handleSignChange(event, userObj)}
+                    placeholder="Email"
+                    onChange={formik.handleChange}
                     required
                     autoFocus
+                    value={formik.values.username}
                   />
                 </div>
                 <div className="form-label-group">
-                  <label htmlFor="inputPassword">Password</label>
+                  <label htmlFor="password">Password</label>
                   <input
                     name="password"
                     type="password"
-                    id="inputPassword"
+                    id="password"
                     className="form-control"
                     placeholder="Password"
-                    onChange={(event) => handleSignChange(event, userObj)}
+                    onChange={formik.handleChange}
                     required
+                    value={formik.values.password}
                   />
                 </div>
                 <button
