@@ -1,86 +1,85 @@
-.restaurantCard {
-    /* max-width: 100 */
-    margin-top: 30px;
-    min-height: 70px;
-    padding-left: 19px;
-    padding-top: 15px;
-    padding-right: 5px;
-    font-size: 15px;
-    padding-bottom: 15px;
-    border-radius: 6px;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-/* 
+.productCard {
+  /* max-width: 100 */
+  margin-top: 30px;
+  min-height: 70px;
+  padding-left: 19px;
+  padding-top: 15px;
+  padding-right: 5px;
+  font-size: 15px;
+  padding-bottom: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  /* 
     border-left-style: solid; */
 }
 
 .reviewCard {
-    /* max-width: 100 */
-    margin: 20px 0px;
-    min-height: 70px;
-    padding-left: 19px;
-    padding-top: 15px;
-    padding-right: 5px;
-    font-size: 15px;
-    padding-bottom: 15px;
-    border-radius: 6px;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-/* 
+  /* max-width: 100 */
+  margin: 20px 0px;
+  min-height: 70px;
+  padding-left: 19px;
+  padding-top: 15px;
+  padding-right: 5px;
+  font-size: 15px;
+  padding-bottom: 15px;
+  border-radius: 6px;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  /* 
     border-left-style: solid; */
 }
 
 .card-signin {
-    border: 0;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-  }
-  
-  .card-signin .card-title {
-    margin-bottom: 2rem;
-    font-weight: 300;
-    font-size: 1.5rem;
-  }
-  
-  .card-signin .card-body {
-    padding: 2rem;
-  }
-  
-  .form-signin {
-    width: 100%;
-  }
-  
-  .form-signin .btn {
-    font-size: 80%;
-    border-radius: 5rem;
-    letter-spacing: .1rem;
-    font-weight: bold;
-    padding: 1rem;
-    transition: all 0.2s;
-  }
-  
-  .form-label-group {
-    position: relative;
-    margin-bottom: 1rem;
-  }
-  
-  .form-label-group input {
-    /* height: auto; */
-    border-radius: 2rem;
-  }
-  
-  .form-label-group>input,
-  .form-label-group>label {
-    height: 40px;
-    /* margin-bottom: 0px; */
-  }
-  
-  .form-label-group label {
-    height: 40px;
-    margin-bottom: 0px;
-  }
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
 
-  .avgRating{
-    color: rgb(235, 122, 17);
-  }
- 
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  /* height: auto; */
+  border-radius: 2rem;
+}
+
+.form-label-group > input,
+.form-label-group > label {
+  height: 40px;
+  /* margin-bottom: 0px; */
+}
+
+.form-label-group label {
+  height: 40px;
+  margin-bottom: 0px;
+}
+
+.avgRating {
+  color: rgb(235, 122, 17);
+}
