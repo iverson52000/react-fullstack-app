@@ -1,32 +1,36 @@
-import React, { useContext } from 'react';
-import { AppContext } from './provider/AppProvider';
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { AppContext } from "./provider/AppProvider";
 
-import Navigation from './components/Navigation';
-import Signin from './components/Signin';
-import Register from './components/Register';
-import RestaurantCardList from './components/RestaurantCardList';
-import DetailPage from './components/DetailPage';
+import Navigation from "./components/Navigation";
+import Signin from "./components/Signin";
+import Register from "./components/Register";
+import ProductCardList from "./components/ProductCardList";
+import DetailPage from "./components/DetailPage";
 
-import './App.css';
-
+import "./App.css";
 
 function App() {
-  const { route } = useContext(AppContext);
-
   return (
     <div className="container">
       <Navigation />
-      { route === "signin" ? (
-          <Signin />
-        ) : route === "register" ? (
-          <Register />
-        ) : route === "list" ? (
-          <RestaurantCardList />
-        ) : (
-          <DetailPage />
-        )
-      }
-    </div>   
+      <Router>
+        <Switch>
+          <Route path="/signin" exact>
+            <Signin />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/list">
+            <ProductCardList />
+          </Route>
+          {/* <Route path="/list">
+            DetailPage
+          </Route> */}
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
