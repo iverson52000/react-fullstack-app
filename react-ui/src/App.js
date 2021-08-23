@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 import Navigation from "./components/Navigation";
 import Signin from "./components/Signin";
 import Register from "./components/Register";
@@ -17,7 +19,6 @@ function App() {
       <div className="container">
         <Navigation />
         <Router>
-          <Link to="/list">List</Link>
           <Switch>
             <Route path="/" exact>
               <Signin />
@@ -32,8 +33,10 @@ function App() {
               <DetailPage />
             </Route>
           </Switch>
+          <Link to="/list">List</Link>
         </Router>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

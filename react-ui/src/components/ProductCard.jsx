@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import { AppContext } from "../provider/AppProvider";
 
 function ProductCard({ product }) {
   const history = useHistory();
+
   return (
     <div className="productCard">
       <h4>{product.name}</h4>

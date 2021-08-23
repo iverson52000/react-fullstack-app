@@ -1,8 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Signin() {
+  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -10,28 +11,25 @@ function Signin() {
     },
 
     onSubmit: async (values) => {
-      alert(JSON.stringify(values, null, 2));
-      //   try {
-      //     const resp = await fetch("http://127.0.0.1:8000/auth/login/", {
-      //       method: "post",
-      //       headers: { "Content-Type": "application/json" },
-      //       body: JSON.stringify(userObj),
-      //     });
+      try {
+        const resp = await fetch("http://127.0.0.1:8000/auth/login/", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
 
-      //     const data = await resp.json();
+        const data = await resp.json();
 
-      //     console.log(data);
-      //     if ("key" in data) {
-      //       setToken(data.key);
-      //       setRoute("list");
-      //       setUserObj({});
-      //     } else {
-      //       alert(Object.values(data));
-      //     }
-      //   } catch (error) {
-      //     console.log(error);
-      //     alert("Something went wrong!");
-      //   }
+        if ("key" in data) {
+          localStorage.setItem("token", data.key);
+          history.push("/list");
+        } else {
+          alert(Object.values(data));
+        }
+      } catch (error) {
+        console.log(error);
+        alert("Something went wrong!");
+      }
     },
   });
 
