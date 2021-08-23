@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { Link, useHistory } from "react-router-dom";
 
-function Signin() {
+function Signin({ setIsLogin }) {
   const history = useHistory();
   const formik = useFormik({
     initialValues: {
@@ -22,6 +22,7 @@ function Signin() {
 
         if ("key" in data) {
           localStorage.setItem("token", data.key);
+          setIsLogin(true);
           history.push("/list");
         } else {
           alert(Object.values(data));

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -14,15 +14,19 @@ import "./App.css";
 const queryClient = new QueryClient();
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
     <QueryClientProvider client={queryClient}>
       <div className="container">
-        <Navigation />
         <Router>
+          <Navigation isLogin={isLogin} setIsLogin={setIsLogin} />
           <Switch>
-            <Route path="/" exact>
-              <Signin />
-            </Route>
+            <Route
+              path="/"
+              render={(props) => <Signin {...props} setIsLogin={setIsLogin} />}
+              exact
+            />
             <Route path="/register">
               <Register />
             </Route>
@@ -33,7 +37,6 @@ function App() {
               <DetailPage />
             </Route>
           </Switch>
-          <Link to="/list">List</Link>
         </Router>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
