@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import Navigation from "./components/Navigation";
@@ -23,7 +28,11 @@ function App() {
         <Navigation isLogin={isLogin} setIsLogin={setIsLogin} />
         <Switch>
           <Route path="/" exact>
-            <Signin isLogin={isLogin} setIsLogin={setIsLogin} />
+            {isLogin ? (
+              <Redirect to="/list" />
+            ) : (
+              <Signin isLogin={isLogin} setIsLogin={setIsLogin} />
+            )}
           </Route>
           <Route path="/register" component={Register} />
           <Route path="/list" component={ProductCardList} />

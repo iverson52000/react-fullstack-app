@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 
 function Signin({ isLogin, setIsLogin }) {
   const history = useHistory();
-  if (isLogin) history.push("/list");
 
   const formik = useFormik({
     initialValues: {
