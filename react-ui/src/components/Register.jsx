@@ -1,38 +1,40 @@
 import React from "react";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Register() {
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
       username: "",
-      password: "",
+      password1: "",
       password2: "",
     },
 
     onSubmit: async (values) => {
-      alert(JSON.stringify(values, null, 2));
-      //   try {
-      //     const resp = await fetch('http://127.0.0.1:8000/auth/registration/', {
-      //         method: "post",
-      //         headers: { "Content-Type": "application/json" },
-      //         body: JSON.stringify(userObj),
-      //     })
+      try {
+        if (values.password1 !== values.password2) {
+          alert("Password doesn't match!");
+          return;
+        }
+        const resp = await fetch("http://127.0.0.1:8000/auth/registration/", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
 
-      //     const data = await resp.json();
+        const data = await resp.json();
 
-      //     console.log(data);
-      //     if ("key" in data) {
-      //         // setToken(data.key);
-      //         alert("You've registered!");
-      //         setRoute("signin");
-      //         setUserObj({});
-      //     } else {
-      //         alert(Object.values(data));
-      //     };
-      // } catch (error) {
-      //     console.log(error);
-      // }
+        if ("key" in data) {
+          alert("You've registered!");
+          history.push("/");
+        } else {
+          alert(Object.values(data));
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
   return (
@@ -62,7 +64,7 @@ function Register() {
                 <div className="form-label-group">
                   <label htmlFor="password">Password(At least 8 letters)</label>
                   <input
-                    name="password"
+                    name="password1"
                     type="password"
                     className="form-control"
                     placeholder="Password"

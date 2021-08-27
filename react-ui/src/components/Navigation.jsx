@@ -5,7 +5,9 @@ import { Navbar, Nav } from "react-bootstrap";
 
 function Navigation({ isLogin, setIsLogin }) {
   const history = useHistory();
+
   const onSignout = () => {
+    localStorage.removeItem("token");
     setIsLogin(false);
     history.push("/");
   };

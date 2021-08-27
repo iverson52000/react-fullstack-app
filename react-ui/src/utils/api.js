@@ -7,7 +7,7 @@ const fetchProducts = async () => {
     reviews.sort((a, b) => {
       let dateA = new Date(a.date);
       let dateB = new Date(b.date);
-      return dateB - dateA;
+      return dateB - dateA || b.id - a.id;
     });
     item.avgRating =
       reviews.reduce((acc, obj) => acc + (obj.rating || 0), 0) /

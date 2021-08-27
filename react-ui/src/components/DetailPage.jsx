@@ -36,6 +36,8 @@ function DetailPage() {
       }
     }
 
+    console.log(curReviews);
+
     return (
       <>
         <button
@@ -65,7 +67,7 @@ function DetailPage() {
             <ReviewCard curReview={curReviews[ratingObj.min[1]]} />
             <h4>Latest review</h4>
             <ReviewCard curReview={curReviews[0]} />
-            <CommentForm id={id} />
+            <CommentForm />
           </div>
         )}
       </>

@@ -2,8 +2,10 @@ import React from "react";
 import { useFormik } from "formik";
 import { Link, useHistory } from "react-router-dom";
 
-function Signin({ setIsLogin }) {
+function Signin({ isLogin, setIsLogin }) {
   const history = useHistory();
+  if (isLogin) history.push("/list");
+
   const formik = useFormik({
     initialValues: {
       username: "",

@@ -5,21 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
-import AppProvider from "./provider/AppProvider";
-
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <AppProvider>
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </React.StrictMode>
-  </AppProvider>,
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
 

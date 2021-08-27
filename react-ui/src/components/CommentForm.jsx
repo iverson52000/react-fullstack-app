@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useParams } from "react-router";
 import { useFormik } from "formik";
 
-function CommentForm({ id }) {
+function CommentForm() {
+  const { id } = useParams();
+
   const formik = useFormik({
     initialValues: {
-      restaurant: id, //id will be converted to string here
+      restaurant: id, // id from useParams is string
       rating: "",
       date: "",
       comment: "",
@@ -12,10 +15,25 @@ function CommentForm({ id }) {
 
     onSubmit: async (values) => {
       try {
-        values.restaurant = parseInt(values.restaurant);
-        values.rating = parseInt(values.rating);
-        alert(JSON.stringify(values));
-      } catch (error) {}
+        const resp = await fetch("http://127.0.0.1:8000/viewset/review/", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(values),
+        });
+
+        const data = await resp.json();
+
+        if ("detail" in data) {
+          alert(Object.values(data));
+        } else {
+          alert("Comment submitted!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
@@ -29,7 +47,6 @@ function CommentForm({ id }) {
             className="form-check-input"
             type="radio"
             name="rating"
-            id="inlineRadio1"
             value="1"
             onChange={formik.handleChange}
             required
@@ -43,7 +60,6 @@ function CommentForm({ id }) {
             className="form-check-input"
             type="radio"
             name="rating"
-            id="inlineRadio2"
             value="2"
             onChange={formik.handleChange}
             required
@@ -57,7 +73,6 @@ function CommentForm({ id }) {
             className="form-check-input"
             type="radio"
             name="rating"
-            id="inlineRadio3"
             value="3"
             onChange={formik.handleChange}
             required
@@ -71,7 +86,6 @@ function CommentForm({ id }) {
             className="form-check-input"
             type="radio"
             name="rating"
-            id="inlineRadio4"
             value="4"
             onChange={formik.handleChange}
             required
@@ -85,7 +99,6 @@ function CommentForm({ id }) {
             className="form-check-input"
             type="radio"
             name="rating"
-            id="inlineRadio5"
             value="5"
             onChange={formik.handleChange}
             required

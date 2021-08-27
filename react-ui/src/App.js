@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -13,16 +13,18 @@ import "./App.css";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
+  useEffect(() => {
+    if (localStorage.getItem("token")) setIsLogin(true);
+  }, []);
+
   return (
     <div className="container">
       <Router>
         <Navigation isLogin={isLogin} setIsLogin={setIsLogin} />
         <Switch>
-          <Route
-            path="/"
-            render={(props) => <Signin {...props} setIsLogin={setIsLogin} />}
-            exact
-          />
+          <Route path="/" exact>
+            <Signin isLogin={isLogin} setIsLogin={setIsLogin} />
+          </Route>
           <Route path="/register" component={Register} />
           <Route path="/list" component={ProductCardList} />
           <Route path="/detail/:id" component={DetailPage} />
