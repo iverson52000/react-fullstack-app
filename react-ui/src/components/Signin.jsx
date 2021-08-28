@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { Link, useHistory } from "react-router-dom";
 
-function Signin({ isLogin, setIsLogin }) {
+function Signin({ setIsLogin }) {
   const history = useHistory();
 
   const formik = useFormik({

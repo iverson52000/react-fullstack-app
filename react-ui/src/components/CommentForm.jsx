@@ -7,7 +7,7 @@ function CommentForm() {
 
   const formik = useFormik({
     initialValues: {
-      restaurant: id, // id from useParams is string
+      product: id, // id from useParams is string
       rating: "",
       date: "",
       comment: "",

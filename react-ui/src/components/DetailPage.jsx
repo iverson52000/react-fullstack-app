@@ -36,8 +36,6 @@ function DetailPage() {
       }
     }
 
-    console.log(curReviews);
-
     return (
       <>
         <button
@@ -47,7 +45,7 @@ function DetailPage() {
           Back to list
         </button>
         <h1>{data[curIndex].name}</h1>
-        {data.length === 0 ? (
+        {curReviews.length === 0 ? (
           <div>
             <h3>No reivews</h3>
             <CommentForm />

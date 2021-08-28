@@ -1,5 +1,5 @@
 const fetchProducts = async () => {
-  const resp = await fetch("http://127.0.0.1:8000/viewset/restaurant/");
+  const resp = await fetch("http://127.0.0.1:8000/viewset/product/");
   const data = await resp.json();
 
   for (let item of data) {
