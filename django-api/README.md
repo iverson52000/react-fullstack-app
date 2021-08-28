@@ -6,9 +6,9 @@ The backend REST API built in Django, Django Rest Framework, Django Rest Auth, f
 
 Admin: Can add/edit/delete, products, users and reviews
 
-Regular User: Can rate and leave a comment for a restaurant
+Regular User: Can rate and leave a comment for a product
 
-**Restaurant**
+**Product**
 
 Persmission: IsAuthenticatedOrReadOnly
 
