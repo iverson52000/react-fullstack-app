@@ -18,6 +18,7 @@ function Register() {
           alert("Password doesn't match!");
           return;
         }
+
         const resp = await fetch("http://127.0.0.1:8000/auth/registration/", {
           method: "post",
           headers: { "Content-Type": "application/json" },
@@ -34,6 +35,7 @@ function Register() {
         }
       } catch (error) {
         console.log(error);
+        alert(error);
       }
     },
   });

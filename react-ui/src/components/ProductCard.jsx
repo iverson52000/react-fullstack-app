@@ -6,15 +6,15 @@ function ProductCard({ product }) {
 
   return (
     <div className="productCard">
-      <h4>{product.name}</h4>
+      <h4>{product?.name}</h4>
       <h5>
         Average rating:{" "}
-        <span className="avgRating">{product.avgRating.toFixed(1)}</span>
+        <span className="avgRating">{product?.avgRating.toFixed(1)}</span>
       </h5>
       <button
         className="btn btn-info"
         onClick={() => {
-          history.push(`/detail/${product.id}`);
+          history.push(`/detail/${product?.id}`);
         }}
       >
         View Reviews

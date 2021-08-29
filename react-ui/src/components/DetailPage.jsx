@@ -72,7 +72,12 @@ function DetailPage() {
     );
   }
 
-  return <></>;
+  return (
+    <>
+      {status === "loading" && <div>Loading data...</div>}
+      {status === "error" && <div>Error fetching data</div>}
+    </>
+  );
 }
 
 export default DetailPage;

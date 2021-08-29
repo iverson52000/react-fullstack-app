@@ -17,6 +17,9 @@ function ProductCardList() {
           })}
         </div>
       )}
+      {status === "loading" && <div>Loading data...</div>}
+      {status === "error" && <div>Error fetching data</div>}
+      {data && data.length === 0 && <div>No products</div>}
     </>
   );
 }

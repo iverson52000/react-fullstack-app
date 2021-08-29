@@ -33,6 +33,7 @@ function CommentForm() {
         }
       } catch (error) {
         console.log(error);
+        alert("error");
       }
     },
   });
@@ -108,7 +109,7 @@ function CommentForm() {
           </label>
         </div>
         <div className="form-group mt-3">
-          <label htmlFor="date">Date of Visit</label>
+          <label htmlFor="date">Date of Comment</label>
           <input
             type="date"
             className="form-control"
