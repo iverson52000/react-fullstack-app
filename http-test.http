@@ -1,0 +1,26 @@
+###
+GET http://localhost:8000/viewset/product HTTP/1.1
+
+###
+GET http://localhost:8000/viewset/product/1 HTTP/1.1
+
+###
+POST http://localhost:8000/viewset/product HTTP/1.1
+content-type: application/json
+
+{
+      "comment": "Hard to get one",
+      "rating": 3,
+      "date": "2021-07-04",
+      "product": 1
+}
+
+
+###
+POST http://127.0.0.1:8000/auth/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "username": "a@a.com",
+    "password": "Aa!12345678"
+}
